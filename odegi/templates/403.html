@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Prohibido (403){% endblock title %}
+{% block content %}
+  <h1>Prohibido (403)</h1>
+  <p>
+    {% if exception %}
+      {{ exception }}
+    {% else %}
+      No estás autorizado a estar aquí. Vuelve al inicio.
+    {% endif %}
+  </p>
+{% endblock content %}

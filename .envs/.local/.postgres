@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=odegi
+POSTGRES_USER=JxhkJEOEqYLAcrETTPzhfOuVBcnqPDex
+POSTGRES_PASSWORD=3maWyJ7NWbnQZwJnWUtNvZlhEAh6QnUsZqCssvVmt0o0lPzncdyCrxLZOUFKuOyc

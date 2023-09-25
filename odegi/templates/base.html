@@ -1,0 +1,134 @@
+
+{% load static i18n %}<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>
+      {% block title %} ODEGI {% endblock title %}
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+        content="Observatorio de Datos y Estadísticas de Género e Interseccionalidades" />
+  <meta name="author"
+        content="IT" />
+  <link rel="icon" href="{% static 'images/favicons/favicon.ico' %}" />
+{% block css %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Work+Sans:wght@100;400&display=swap" rel="stylesheet">
+<!-- Le Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+          integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+<!-- Le CSS ============================================ -->
+    <link href="{% static 'css/project.css' %}" rel="stylesheet" type="text/css"/>
+
+
+{% endblock css %}
+<!-- Le javascript ============================================ -->
+{# Placed at the top of the document so pages load faster with defer #}
+
+
+{% block javascript %}
+<!-- Bootstrap JS -->
+<script defer
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"
+        integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+<!-- Your stuff: Third-party javascript libraries go here -->
+  <script defer src="{% static 'js/project.js' %}"></script>
+{% endblock javascript %}
+</head>
+<body>
+  <header>
+      <button type="button">Donar</button>
+
+      <div class="container-fluid">
+          <div class="row align-items-center">
+              <div class="col-md-3 text-center">
+                  <a href="{% url 'home' %}">
+                      <img src="{% static 'images/logo.png' %}" height="40px" alt="Logo" class="logo-con-margen">
+                  </a>
+              </div>
+              <div class="col-md-9 text-center">
+                  <nav class="navbar navbar-expand-md ml-auto">
+                      <button class="navbar-toggler navbar-toggler-right"
+                              type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#navbarSupportedContent"
+                              aria-controls="navbarSupportedContent"
+                              aria-expanded="false"
+                              aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                          <ul class="navbar-nav ">
+                              <li class="nav-item active">
+                                  <a class="nav-link" href="{% url 'home' %}">Inicio <span class="visually-hidden">(current)</span></a>
+                              </li>
+                              <li class="nav-item">
+                                  <a class="nav-link" href="#">Nosotras</a>
+                              </li>
+                              <li class="nav-item">
+                                  <a class="nav-link" href="#">Nuestra historia</a>
+                              </li>
+                              <li class="nav-item">
+                                  <a class="nav-link" href="#">Datoteca</a>
+                              </li>
+                              <li class="nav-item">
+                                  <a class="nav-link" href="#">Nuestro trabajo</a>
+                              </li>
+                              <li class="nav-item">
+                                  <a class="nav-link" href="#">Transparencia</a>
+                              </li>
+                              <li class="nav-item">
+                                  <a class="nav-link" href="#">Blog</a>
+                              </li>
+                          </ul>
+                      </div>
+  </header>
+  {% block content %}
+
+  {% endblock content %}
+
+  <footer>
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-md-4 columna1">
+                  <img src="{% static 'images/logo-gris.png' %}" height="40px" alt="logo-gris" class="logo-gris">
+                  <p>
+                      Observatorio de <br>
+                      datos y estadísticas <br>
+                      de género e <br>
+                      interseccionalidades
+                  </p>
+              </div>
+              <div class="col-md-4 columna2">
+                  <p>
+                      ¿Quieres saber qué hacemos <br>
+                      con las donaciones?
+                  </p>
+                  <button type="button">Transparencia →</button>
+                <br>
+
+              </div>
+              <div class="col-md-4 columna3">
+                  <p><a href="mailto:contacto@odegi.cl" class="linkmail">contacto@odegi.cl</a></p>
+                <div class="rrss">
+                  <a href="#"><img src="{% static 'images/fb.png' %}" alt="facebook-logo"></a>
+                  <a href="#"><img src="{% static 'images/ig.png' %}" alt="instagram-logo"></a>
+                  <a href="#"><img src="{% static 'images/li.png' %}" alt="linkedin-logo"></a>
+                  <a href="#"><img src="{% static 'images/tw.png' %}" alt="twitter-logo"></a>
+                </div>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+</body>
+</html>

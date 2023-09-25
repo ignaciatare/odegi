@@ -1,0 +1,150 @@
+body {
+  background: linear-gradient(0deg, #9A99DA 0%, #A2A1DC 4.13%, #B8B7E0 10.55%, #DBDBE8 18.42%, #EBEBEB 21.54%, #EBEBEB 32.86%, #EBEBEB 100%);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+header button {
+  font-size: 18px;
+  font-family: 'Playfair Display', serif;
+  width: 92px;
+  height: 41px;
+  border-radius: 50px;
+  border: 1px;
+  border-style: solid;
+  border-color: #000000;
+  right: 40px;
+  margin-top: 20px;
+  background-color: transparent;
+  position: absolute;
+}
+nav {
+  background-color: #FFFFFF;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1em;
+  color: #222222;
+  border-radius: 50px;
+  margin-right: 5%;
+}
+.logo-con-margen {
+    margin: 80px;
+}
+.nav-item {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3em;
+  color: #333333;
+  padding: 20px;
+  margin-left: 30px;
+}
+.column-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.column {
+  flex: 1;
+  margin: 0 10px;
+}
+.principal {
+  margin: 80px;
+}
+.novedades {
+  columns: auto;
+  column-count: 2;
+  margin: 6em;
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+  border-radius: 50px;
+  padding: 8em;
+}
+.card {
+  display: flex;
+  margin: 2em;
+  border-radius: 50px;
+  border-color: #FFFFFF;
+}
+.card-body {
+    padding-bottom: 1em;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    border-radius: 50px;
+    border-color: #FFFFFF;
+    overflow-x: auto;
+}
+.card-img-top {
+  border-radius: 50px 50px 0px 0px;
+}
+.categorias {
+  display: flex;
+  align-items: center;
+
+  font-family: 'Playfair Display', serif;
+  font-size: 1em;
+  color: #222222;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+.titulos {
+  display: flex;
+  align-items: flex-start;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.5em;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+.fechas {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.8em;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+/* ========= ESTILO FOOTER =========== */
+footer {
+    border-top: 1px solid #EBEBEB;
+    padding-top: 3em;
+    color: #EBEBEB;
+    margin-left: 6em;
+    margin-right: 6em;
+    padding-bottom: 80px;
+    display: block;
+}
+.columna1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5em;
+    line-height: 1.1;
+}
+.columna2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5em;
+}
+.columna3 {
+  font-family: 'Work Sans', sans-serif;
+}
+.linkmail {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.1em;
+  color: #EBEBEB;
+  text-decoration: none;
+  margin: 2em;
+}
+footer button {
+  background-color: transparent;
+  padding: 10px 30px 10px 30px;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1em;
+  color: #EBEBEB;
+  border-radius: 50px;
+  border: 1px;
+  border-style: solid;
+  border-color: #EBEBEB;
+}
+.rrss img{
+  margin-right: 0.8em;
+}
