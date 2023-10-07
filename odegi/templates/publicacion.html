@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <body class="publicacion">
+    <div class="bloque_rosa">
+    </div>
+    <div class="row cuerpopost">
+      {% for publicacion in publicaciones %}
+        <div class="col-md-6">
+          <img src="{{ publicacion.imagen_principal.url }}" alt="{{ publicacion.titulo }}" />
+          <h5 class="extracto"> {{ publicacion.extracto }} </h5>
+          <img src="{{ publicacion.imagen2.url }}" alt="{{ publicacion.titulo }}" />
+          <img src="{{ publicacion.imagen3.url }}" alt="{{ publicacion.titulo }}" />
+        </div>
+        <div class="col-md-6">
+          <h2 class="titulo">{{ publicacion.titulo }}</h2>
+          <p class="fecha">{{ publicacion.fecha_publicacion }}</p>
+          <p class="autora">{{ publicacion.autora }}</p>
+          {% with contenido=publicacion.contenido|safe %}
+            <p class="primer-parrafo">{{ contenido|first_paragraph }}</p>
+            {{ contenido|slice:"</p>" }}
+          {% endwith %}
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+  </body>
+{% endblock content %}

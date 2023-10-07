@@ -5,10 +5,12 @@ from django.urls import include, path
 from django.views import defaults as default_views
 from django.views.generic import TemplateView
 
+
+
 urlpatterns = [
     path('', include('odegiblog.urls')),
-    path("nosotras/", TemplateView.as_view(template_name="pages/nosotras.html"), name="nosotras"),
-    # Django Admin, use {% url 'admin:index' %}
+    #path('nuestra_historia/', views.nuestra_historia, name='nuestra_historia'),
+
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
     path("users/", include("odegi.users.urls", namespace="users")),

@@ -1,5 +1,7 @@
 
-{% load static i18n %}<!DOCTYPE html>
+{% load static i18n %}
+{% load static %}
+<!DOCTYPE html>
 {% get_current_language as LANGUAGE_CODE %}
 <html lang="{{ LANGUAGE_CODE }}">
   <head>
@@ -25,14 +27,12 @@
           crossorigin="anonymous"
           referrerpolicy="no-referrer" />
 <!-- Le CSS ============================================ -->
-    <link href="{% static 'css/project.css' %}" rel="stylesheet" type="text/css"/>
-
+    <link rel="stylesheet" type="text/css" href="{% static 'css/project.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 {% endblock css %}
+
 <!-- Le javascript ============================================ -->
-{# Placed at the top of the document so pages load faster with defer #}
-
-
 {% block javascript %}
 <!-- Bootstrap JS -->
 <script defer
@@ -46,39 +46,36 @@
 </head>
 <body>
   <header>
+    <div class="botondonar">
       <button type="button">Donar</button>
+    </div>
 
       <div class="container-fluid">
           <div class="row align-items-center">
-              <div class="col-md-3 text-center">
-                  <a href="{% url 'home' %}">
-                      <img src="{% static 'images/logo.png' %}" height="40px" alt="Logo" class="logo-con-margen">
+              <div class="col-md-3 loguito">
+                  <a class="navbar-brand" href="{% url 'odegiblog:home' %}">
+                      <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo-con-margen" height="40vw">
                   </a>
               </div>
               <div class="col-md-9 text-center">
                   <nav class="navbar navbar-expand-md ml-auto">
-                      <button class="navbar-toggler navbar-toggler-right"
-                              type="button"
-                              data-bs-toggle="collapse"
-                              data-bs-target="#navbarSupportedContent"
-                              aria-controls="navbarSupportedContent"
-                              aria-expanded="false"
-                              aria-label="Toggle navigation">
-                          <span class="navbar-toggler-icon"></span>
-                      </button>
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+
                       <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                           <ul class="navbar-nav ">
                               <li class="nav-item active">
-                                  <a class="nav-link" href="{% url 'home' %}">Inicio <span class="visually-hidden">(current)</span></a>
+                                  <a class="nav-link" href="{% url 'odegiblog:home' %}">Inicio</a>
                               </li>
                               <li class="nav-item">
-                                  <a class="nav-link" href="{% url 'nosotras' %}">Nosotras</a>
+                                  <a class="nav-link" href="#">Nosotras</a>
                               </li>
                               <li class="nav-item">
                                   <a class="nav-link" href="#">Nuestra historia</a>
                               </li>
                               <li class="nav-item">
-                                  <a class="nav-link" href="#">Datoteca</a>
+                                  <a class="nav-link" href="{% url 'odegiblog:datoteca' %}">Datoteca</a>
                               </li>
                               <li class="nav-item">
                                   <a class="nav-link" href="#">Nuestro trabajo</a>
@@ -91,6 +88,8 @@
                               </li>
                           </ul>
                       </div>
+                  </nav>
+              </div>
   </header>
 {% block content %}
 
@@ -120,10 +119,10 @@
               <div class="col-md-4 columna3">
                   <p><a href="mailto:contacto@odegi.cl" class="linkmail">contacto@odegi.cl</a></p>
                 <div class="rrss">
-                  <a href="#"><img src="{% static 'images/fb.png' %}" alt="facebook-logo"></a>
-                  <a href="#"><img src="{% static 'images/ig.png' %}" alt="instagram-logo"></a>
-                  <a href="#"><img src="{% static 'images/li.png' %}" alt="linkedin-logo"></a>
-                  <a href="#"><img src="{% static 'images/tw.png' %}" alt="twitter-logo"></a>
+                  <a href="https://www.facebook.com/odegichile/" target="_blank"><img src="{% static 'images/fb.png' %}" alt="facebook-logo"></a>
+                  <a href="https://www.instagram.com/odegichile/" target="_blank"><img src="{% static 'images/ig.png' %}" alt="instagram-logo"></a>
+                  <a href="https://www.linkedin.com/company/odegichile" target="_blank"><img src="{% static 'images/li.png' %}" alt="linkedin-logo"></a>
+                  <a href="https://twitter.com/odegichile" target="_blank"><img src="{% static 'images/tw.png' %}" alt="twitter-logo"></a>
                 </div>
               </div>
           </div>

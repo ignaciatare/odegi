@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<body class="bodyhome">
+  <section class="destacado_home">
+    <div class="column-container">
+        <div class="col-md-6">
+          {% for postdestacado in destacado %}
+            <h1 class="titulo_destacado">{{ postdestacado.titulo }}</h1>
+          {% endfor %}
+        </div>
+
+        <div class="col-md-6">
+          {% for postdestacado in destacado %}
+          <img class="imagen_destacada" src="{{ postdestacado.imagen_principal.url }}" alt="{{ postdestacado.titulo }}" width="600px">
+          {% endfor %}
+        </div>
+   </div>
+  </section>
+
+
+  <section class="novedades">
+      <div class="contenedor_titulo">
+          <h1 class="titulo_novedades">Novedades</h1>
+      </div>
+      <div class="novedades-cards-container">
+          {% for publicacion in publicaciones %}
+          <div class="novedad-card">
+                  <div class="card" style="border: none; background-color: {{ colores|random }};">
+                      <img src="{{ publicacion.imagen_principal.url }}" class="card-img-top" alt="{{ publicacion.titulo }}">
+                      <div class="card-body">
+                        <a href="{% url 'odegiblog:ver_publicacion' slug=publicacion.slug %}">
+                            <div class="card-text">
+                                <h2 class="categorias">Categoría: {{ publicacion.categoria.first.nombre }}</h2>
+                                <h4 class="titulos">{{ publicacion.titulo }}</h4>
+                                <p class="fechas">{{ publicacion.fecha_publicacion|date:"d/m/Y" }}</p>
+                            </div>
+                        </a>
+                      </div>
+                  </div>
+          </div>
+          {% endfor %}
+      </div>
+  </section>
+
+</body>
+{% endblock content %}

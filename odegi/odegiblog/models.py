@@ -1,5 +1,21 @@
 from django.db import models
-from django.contrib.auth.models import User
+
+
+class Autora(models.Model):
+    nombre = models.CharField(max_length=200)
+    descripcion = models.TextField(blank=True)
+    avatar = models.ImageField(blank=True)
+    link = models.URLField(blank=True)
+
+    def __str__(self):
+        return f"{self.nombre}"
+
+class Categoria(models.Model):
+    nombre = models.CharField(max_length=200)
+    descripcion = models.TextField(blank=True)
+
+    def __str__(self):
+        return f"{self.nombre}"
 
 
 ESTATUS = (
@@ -12,45 +28,29 @@ SECCION = (
     (2, "Heramientas"),
     (3, "Proyectos"),
 )
-CATEGORIAS = (
-    ('violencia', 'Violencia'),
-    ('derechos_repr', 'Derechos Reproductivos'),
-    ('deportes', 'Deportes'),
-    ('moda', 'Moda'),
-    ('ddhh', 'Derechos Humanos'),
-    ('interseccionalidad', 'Interseccionalidad'),
-    ('trabajo', 'Trabajo'),
-    ('educacion', 'Educación'),
-    ('salud', 'Salud'),
-    ('seguridad', 'Seguridad'),
-    ('tecnologia', 'Tecnología'),
-    ('economia', 'Economía'),
-    ('participacion', 'Participación política'),
-)
 
 
 class Publicacion(models.Model):
     titulo = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    #author = models.ForeignKey(User, on_delete= models.CASCADE, related_name='publicaciones')
+    autora = models.ManyToManyField(Autora)
     extracto = models.TextField()
-    categoria = models.CharField(
-    max_length=20,
-    choices=CATEGORIAS,
-    default='tecnologia',
-        )
+    categoria = models.ManyToManyField(Categoria)
     contenido = models.TextField()
     fecha_publicacion = models.DateTimeField(auto_now_add=True)
     estatus = models.IntegerField(choices=ESTATUS, default=0)
     destacado = models.BooleanField()
     seccion = models.IntegerField(choices=SECCION, default=0)
+    link = models.URLField(blank=True)
     imagen_principal = models.ImageField()
     imagen2 = models.ImageField(blank=True)
     imagen3 = models.ImageField(blank=True)
     imagen4 = models.ImageField(blank=True)
     imagen5 = models.ImageField(blank=True)
 
-
 class Meta:
     ordering = ['-fecha_publicacion']
     db_table = 'Publicacion'
+
+    def __str__(self):
+        return f"{self.titulo}"

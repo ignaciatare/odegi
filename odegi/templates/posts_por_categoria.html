@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h1>Posts de la categoría "{{ categoria.nombre }}"</h1>
+<ul>
+    {% for post in posts %}
+        <li>
+            <a href="{% url 'detalle_publicacion' post.id %}">{{ post.titulo }}</a>
+            <a href="{% url 'detalle_publicacion' pk=1 %}">Ver Detalle</a>
+
+        </li>
+    {% empty %}
+        <p>No se encontraron posts en esta categoría.</p>
+    {% endfor %}
+</ul>
+{% endblock content %}

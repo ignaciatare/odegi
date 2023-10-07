@@ -1,11 +1,9 @@
 """
 Base settings to build other settings files upon.
 """
+import os
 from pathlib import Path
-
 import environ
-
-from odegi import odegiblog
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 # odegi/
@@ -93,7 +91,8 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "odegi.users",
     "odegi.odegiblog",
-    # Your stuff: custom apps go here
+    "odegi.nosotras",
+    "odegi.glosario",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -157,7 +156,10 @@ STATIC_ROOT = str(BASE_DIR / "staticfiles")
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = "/static/"
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
-STATICFILES_DIRS = [str(APPS_DIR / "static")]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'odegi/static')]
+
+
+
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",

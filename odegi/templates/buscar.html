@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+<h1>Resultados de la búsqueda para "{{ query }}"</h1>
+<ul>
+    {% for publicacion in resultados %}
+        <li>{{ publicacion.titulo }}</li>
+    {% empty %}
+        <p>No se encontraron resultados.</p>
+    {% endfor %}
+</ul>
+{% endblock content %}
