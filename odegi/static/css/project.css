@@ -206,61 +206,84 @@ footer {
 .nosotrash {
   background-color: #9A99DA;
 }
+.texto_imagen_nosotras {
+  margin: 12rem;
+  column-count: 2;
+  column-gap: 0px;
+}
+.textonosotras {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1em;
+  color: #333333;
+  vertical-align: middle;
+}
+.fotomancha {
+  margin-left: 8rem;
+  margin-right: 0px;
+}
+.mancha {
+  max-width: 120%;
+  height: auto;
+  vertical-align: middle; /* Alinea verticalmente la imagen */
+}
 .colaboradoras {
   display: flex;
   column-count: 3;
   flex-direction: column;
-  column-gap: 40px;
-  margin: 6em;
+  column-gap: 2px;
+  margin: 6rem;
   background-color: #FFFFFF;
   border-color: #FFFFFF;
   border-radius: 50px;
   padding: 8em;
 }
-.textonosotras {
-  font-family: 'Work Sans', sans-serif;
-  margin-left: 10px;
-  font-size: 1em;
-  color: #333333;
-}
-.fotomancha {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  margin: 0 15em 8em 15em;
-}
-.mancha {
-  align-items: center;
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
 .equipo {
   display: flex;
   flex-direction: row;
 }
-.voluntarias {
+.lasvoluntarias {
+  column-count: 3;
+  column-gap: 2px;
   border-top: 1px solid #222222;
-  display: flex;
-  flex-direction: row;
 }
-.tomaaccion {
-  border-top: 1px solid #222222;
-  display: flex;
-  flex-direction: row;
+
+.elequipo {
+  column-count: 3;
+  column-gap: 2px;
 }
 .columna4 {
   font-family: 'Playfair Display', serif;
   font-size: 2.5em;
   color: #333333;
   padding: 20px;
+  padding-bottom: 100%;
+}
+.columna5 {
+  font-family: 'Work Sans', sans-serif;
+  padding-top: 2rem;
+}
+.lasvoluntarias {
+  column-count: 3;
+  column-gap: 2px;
 }
 .columna7 {
   font-family: 'Playfair Display', serif;
   font-size: 2.5em;
   color: #333333;
   padding: 20px;
+  padding-bottom: 100%;
+}
+.columna8 {
+  font-family: 'Work Sans', sans-serif;
+  padding-top: 2rem;
+}
+.tomaaccion {
+  border-top: 1px solid #222222;
+  display: flex;
+  column-count: 2;
+  margin-left: 0;
+  margin-right: 2rem;
+  margin-top: 3rem;
 }
 .columna10 {
   font-family: 'Playfair Display', serif;
@@ -268,19 +291,23 @@ footer {
   color: #333333;
   padding: 20px;
   display: flex;
-  justify-content: flex-end;
+  margin-left: 15rem;
+  margin-right: 1rem;
+}
+.columna11 {
+  margin-left: 3rem;
 }
 .columna11 button {
   background-color: transparent;
   font-family: 'Work Sans', sans-serif;
-  font-size: 1em;
+  font-size: 1.2em;
   color: #333333;
   border: 1px solid #222222;
   border-radius: 50px;
   align-content: center;
   padding: 5px 20px 5px 20px;
-  margin-top: 2em;
-  margin-left: 3em;
+  margin-top: 2rem;
+  margin-left: 3rem;
 }
 
 /* ==================== DATOTECA header ====================== */

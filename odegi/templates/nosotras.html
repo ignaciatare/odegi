@@ -3,45 +3,54 @@
 
 {% block content %}
   <body class="nosotrash">
-    <div class="flex-container fotomancha">
-        <div class="col-md-6">
-            <img src="{% static 'images/nosotras.png' %}" alt="figura-nosotras" class="mancha">
-        </div>
+    <main>
+        <section class="texto_imagen_nosotras">
+          <div class="flex-container fotomancha">
+              <div class="col-md-6">
+                  <img src="{% static 'images/nosotras.png' %}" alt="figura-nosotras" class="mancha">
+              </div>
 
-        <div class="col-md-6 textonosotras">
-          <p>Fusce dictum nisl massa, eu vestibulum turpis fermentum id. Nulla facilisi. Fusce sagittis purus eros, eget condimentum ligula bibendum quis. Nulla vitae eleifend odio. Mauris vulputate, lacus vel aliquam auctor, risus tortor accumsan ex, volutpat pulvinar nisl velit id ligula. Quisque eget justo quis orci gravida ullamcorper quis sit amet dui. Sed sit amet tempor velit. Aliquam non efficitur risus.
-             Fusce dictum nisl massa, eu vestibulum turpis fermentum id. Nulla facilisi. Fusce sagittis purus eros, eget condimentum ligula bibendum quis. Nulla vitae eleifend odio. Mauris vulputate, lacus vel aliquam auctor, risus tortor accumsan ex, volutpat pulvinar nisl velit id ligula. Quisque eget justo quis orci gravida ullamcorper quis sit amet dui. Sed sit amet tempor velit. Aliquam non efficitur risus.</p>
-        </div>
-    </div>
+              <div class="col-md-6 textonosotras">
+                Fusce dictum nisl massa, eu vestibulum turpis fermentum id. Nulla facilisi. Fusce sagittis purus eros, eget condimentum ligula bibendum quis. Nulla vitae eleifend odio. Mauris vulputate, lacus vel aliquam auctor, risus tortor accumsan ex, volutpat pulvinar nisl velit id ligula. Quisque eget justo quis orci gravida ullamcorper quis sit amet dui. Sed sit amet tempor velit. Aliquam non efficitur risus.
+                Fusce dictum nisl massa, eu vestibulum turpis fermentum id. Nulla facilisi. Fusce sagittis purus eros, eget condimentum ligula bibendum quis. Nulla vitae eleifend odio. Mauris vulputate, lacus vel aliquam auctor, risus tortor accumsan ex, volutpat pulvinar nisl velit id ligula. Quisque eget justo quis orci gravida ullamcorper quis sit amet dui. Sed sit amet tempor velit. Aliquam non efficitur risus.
 
-    <div class="flex-container colaboradoras">
-      <div class="elequipo">
-        <div class="columna4">Equipo</div>
-        {% for x in equipo %}
-          <div class="columna5">
-            <h5>{{ x.nombre }}</h5>
-            <h6>{{ x.cargo }}</h6>
-            <h6>{{ x.grado }}</h6>
+              </div>
           </div>
-          <div class="columna6"></div>
-        {% endfor %}
-      </div>
-      <div class="lasvoluntarias">
-        <div class="columna7">Voluntarias</div>
-        {% for y in voluntarias %}
-          <div class="columna8">
-            <h5>{{ y.nombre }}</h5>
-            <h6>{{ y.cargo }}</h6>
-            <h6>{{ y.grado }}</h6>
-          </div>
-        {% endfor %}
-      </div>
-      <div class="tomaaccion">
-        <div class="col-md-6 columna10">¿Quieres ser voluntaria?</div>
-        <div class="col-md-6 columna11">
-          <button type="button">Toma acción →</button>
-        </div>
-      </div>
-    </div>
+        </section>
+        <section class="flex-container colaboradoras">
+              <div class="elequipo">
+                <div class="columna4">
+                  <h1>Equipo</h1>
+                </div>
+                  {% for persona in equipo %}
+                    <div class="columna5">
+                      <h5>{{ persona.nombre }}</h5>
+                      <h6>{{ persona.cargo }}</h6>
+                      <h6>{{ persona.grado }}</h6>
+                    </div>
+                    <div class="columna6"></div>
+                  {% endfor %}
+              </div>
+              <div class="lasvoluntarias">
+                <div class="columna7">
+                  <h1>Voluntarias</h1>
+                </div>
+                {% for voluntaria in voluntarias %}
+                  <div class="columna8">
+                    <h5>{{ voluntaria.nombre }}</h5>
+                    <h6>{{ voluntaria.cargo }}</h6>
+                    <h6>{{ voluntaria.grado }}</h6>
+                  </div>
+                {% endfor %}
+              </div>
+              <div class="tomaaccion">
+                <div class="columna10">¿Quieres ser voluntaria?
+              </div>
+              <div class="columna11">
+                <button type="button">Toma acción →</button>
+              </div>
+              </div>
+        </section>
+    </main>
   </body>
 {% endblock %}
