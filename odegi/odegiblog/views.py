@@ -48,10 +48,10 @@ def datoteca(request):
 
     return render(request, "datoteca.html", context)
 
-def publicacion(request):
-    publicaciones = Publicacion.objects.filter(estatus=1).order_by('-fecha_publicacion')
+def publicacion(request, slug):
+    publicacion = Publicacion.objects.get(slug=slug)
     context = {
-        'publicaciones': publicaciones
+        'publicacion': publicacion
     }
     return render(request, 'publicacion.html', context)
 
@@ -98,3 +98,7 @@ def buscar_publicaciones(request):
     }
 
     return render(request, 'buscar.html', context)
+
+
+def transparencia(request):
+    return render(request, 'transparencia.html')

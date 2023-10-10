@@ -9,6 +9,9 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path('', include('odegiblog.urls')),
+    path('nosotras/', include('nosotras.urls')),
+
+
     #path('nuestra_historia/', views.nuestra_historia, name='nuestra_historia'),
 
     path(settings.ADMIN_URL, admin.site.urls),

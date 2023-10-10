@@ -6,8 +6,8 @@
 <ul>
     {% for post in posts %}
         <li>
-            <a href="{% url 'detalle_publicacion' post.id %}">{{ post.titulo }}</a>
-            <a href="{% url 'detalle_publicacion' pk=1 %}">Ver Detalle</a>
+            <a href="{% url 'odegiblog:ver_publicacion' post.slug %}">{{ post.titulo }}</a>
+            <a href="{% url 'odegiblog:ver_publicacion' post.slug %}">Ver Detalle</a>
 
         </li>
     {% empty %}
