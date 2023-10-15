@@ -541,6 +541,7 @@ footer {
 .nuestro_trabajo {
   background-color: #9A99DA;
 }
+
 /* ==================== PUBLICACIÓN SINGULAR ====================== */
 .publicacion {
   background-image: linear-gradient(
@@ -675,4 +676,35 @@ body .nuestra_hisotria {
   text-decoration: none;
   font-size: 1vw;
   margin-bottom: 2rem;
+}
+/* ==================== BUSCAR ====================== */
+.body_buscar {
+  background: linear-gradient(0deg, #9A99DA 0%, #A2A1DC 4.13%, #B8B7E0 10.55%, #DBDBE8 18.42%, #EBEBEB 21.54%, #EBEBEB 32.86%, #EBEBEB 100%) no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+.buscar {
+  background-color: #FFFFFF;
+  border-radius: 30px;
+  margin-bottom: 12rem;
+  margin-right: 10rem;
+  margin-left: 10rem;
+  margin-top: 8rem;
+  padding-bottom: 4rem;
+}
+.titulo_buscar {
+  font-family: 'Playfair Display', serif;
+  font-size: 3vw;
+  color: #333333;
+  padding-bottom: 3rem;
+  padding-top: 3rem;
+  margin-left: 6rem;
+  margin-right: 6rem;
+}
+.resultados {
+  margin-right: 8rem;
+  margin-left: 8rem;
+}
+.nada {
+  font-family: 'Work Sans', sans-serif;
 }

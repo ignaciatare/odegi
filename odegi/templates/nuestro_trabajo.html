@@ -3,8 +3,28 @@
 
 {% block content %}
 <body class="nuestro_trabajo">
+  <section class="glosario">
+    <div class="titulo_glosario">
+      <h1>Glosario</h1>
+    </div>
+    <div class="lista_terminos">
+      {% for termino in terminos %}
+        <button class="terminos">
+          {{ termino.termino }}
+        </button>
+      {% endfor %}
+    </div>
+    <div class="despliegue_definicion">
+      <h3 class="termino"> </h3>
+      <p class="definicion">
+
+      </p>
+    </div>
+  </section>
+
+  <section class="nuestros_proyectos">
 
 
-
+  </section>
 </body>
 {% endblock content %}

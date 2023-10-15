@@ -3,12 +3,25 @@
 
 
 {% block content %}
-<h1>Resultados de la búsqueda para "{{ query }}"</h1>
-<ul>
-    {% for publicacion in resultados %}
-        <li>{{ publicacion.titulo }}</li>
-    {% empty %}
-        <p>No se encontraron resultados.</p>
-    {% endfor %}
-</ul>
+
+<body class="body_buscar">
+  <section class="buscar">
+    <div class="titulo_buscar">
+      <h1>Resultados de la búsqueda para "{{ query }}"</h1>
+    </div>
+    <ul class="resultados">
+        {% for publicacion in resultados %}
+          <a class="titulo_post" href="{% url 'odegiblog:ver_publicacion' publicacion.slug %}">{{ publicacion.titulo }}</a>
+          <p class="post_extracto">
+            {{ publicacion.extracto }}
+          </p>
+          <a class="ver_detalle" href="{% url 'odegiblog:ver_publicacion' publicacion.slug %}">Ver Detalle</a>
+          <br><br>
+        {% empty %}
+            <p class="nada">No se encontraron resultados.</p>
+        {% endfor %}
+    </ul>
+
+  </section>
+</body>
 {% endblock content %}
