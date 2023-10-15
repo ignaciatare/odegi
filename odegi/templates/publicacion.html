@@ -3,25 +3,41 @@
 
 {% block content %}
   <body class="publicacion">
-    <div class="bloque_rosa">
-    </div>
-    <div class="row cuerpopost">
-        <div class="col-md-6">
-          <img src="{{ publicacion.imagen_principal.url }}" alt="{{ publicacion.titulo }}" />
-          <h5 class="extracto"> {{ publicacion.extracto }} </h5>
-          {% if publicacion.imagen2 %}
-            <img src="{{ publicacion.imagen2.url }}" alt="{{ publicacion.titulo }}" />
-          {% endif %}
-        </div>
-        <div class="col-md-6">
-          <h2 class="titulo">{{ publicacion.titulo }}</h2>
-          <p class="fecha">{{ publicacion.fecha_publicacion }}</p>
-          <p class="autora">{{ publicacion.autora }}</p>
-          {% with contenido=publicacion.contenido|safe %}
+    <section class="flex-container bloquepost">
+      <div class="row cuerpopost">
+          <div class="col-md-6 columnaizquierda">
+            <div class="borde_imagen_principal">
+              <img class="imagen_principal" src="{{ publicacion.imagen_principal.url }}" alt="{{ publicacion.titulo }}" />
+            </div>
+            <div class="cajaextracto"
+              <h5 class="extracto"> {{ publicacion.extracto }} </h5>
+            </div>
+            {% if publicacion.imagen2 %}
+              <img class="imagen2" src="{{ publicacion.imagen2.url }}" alt="{{ publicacion.titulo }}" />
+            {% endif %}
+            {% if publicacion.imagen3 %}
+              <img class="imagen3" src="{{ publicacion.imagen3.url }}" alt="{{ publicacion.titulo }}" />
+            {% endif %}
+            {% if publicacion.imagen4 %}
+              <img class="imagen4" src="{{ publicacion.imagen4.url }}" alt="{{ publicacion.titulo }}" />
+            {% endif %}
+            {% if publicacion.imagen5 %}
+              <img class="imagen5" src="{{ publicacion.imagen5.url }}" alt="{{ publicacion.titulo }}" />
+            {% endif %}
 
-            {{ contenido|slice:"</p>" }}
-          {% endwith %}
-        </div>
-    </div>
+
+          </div>
+          <div class="col-md-6 columnaderecha">
+              <div class="titulo-container">
+                <h2 class="titulo">{{ publicacion.titulo }}</h2>
+              </div>
+            <p class="fecha">{{ publicacion.fecha_publicacion|date:"d/m/Y" }}</p>
+            <p class="autora">{{ publicacion.autora }}</p>
+            <p class="contenido">
+              {{ publicacion.contenido }}
+            </p>
+          </div>
+      </div>
+    </section>
   </body>
 {% endblock content %}

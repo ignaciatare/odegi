@@ -543,10 +543,7 @@ footer {
 }
 /* ==================== PUBLICACIÓN SINGULAR ====================== */
 .publicacion {
-  background: #ECA0ED;
-  height: 274px;
-  flex-shrink: 0;
-  background: linear-gradient(
+  background-image: linear-gradient(
     0deg,
     #9A99DA 0%,
     #A2A1DC 4.13%,
@@ -554,14 +551,128 @@ footer {
     #DBDBE8 18.42%,
     #EBEBEB 21.54%,
     #EBEBEB 32.86%,
-    #EBEBEB 97.4%,
-    #EBEBEB 97.4%,
-    #EBEBEB 97.41%,
-    #EBEBEB 100%
+    #EBEBEB 82.4%,
+    #EBEBEB 82.4%,
+    #EBEBEB 82.41%,
+    #EBEBEB 85%,
+    #ECA0ED 15%
   );
-  background-attachment: fixed;
+  }
+.bloquepost {
+  background-color: #FFFFFF;
+  border-radius: 30px;
+  margin: 4rem 8rem 6rem;
+  column-count: 2;
+  column-width: auto;
+  column-fill: balance;
+  column-gap: 3vw;
+  padding: 5rem;
 }
+
+.cajaextracto {
+  color: #333333;
+  font-family: "Playfair Display", serif;
+  font-size: 2vw;
+  font-style: normal;
+  font-weight: lighter;
+  line-height: normal;
+  padding-bottom: 10rem;
+}
+.columnaizquierda {
+}
+
+.borde_imagen_principal {
+  padding-bottom: 8rem;
+}
+.imagen_principal, .imagen2, .imagen3, .imagen4, .imagen5 {
+  width: 100%;
+  border-radius: 16px 16px 16px 16px;
+}
+.columnaderecha {
+}
+.titulo-container {
+  margin-bottom: 2rem;
+}
+.titulo {
+  color: #333333;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 3vw;
+  font-style: normal;
+  line-height: normal;
+}
+.fecha {
+  color: #333333;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.7rem;
+}
+
+.contenido {
+  font-family: 'Work Sans', sans-serif;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+.autora {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.7rem;
+}
+
 /* ==================== NUESTRA HISTORIA ====================== */
 body .nuestra_hisotria {
   background: linear-gradient(0deg, #9A99DA 0%, #EBEBEB 12%, #EBEBEB 31.53%, #F2E1BB 36.31%, #FBD37A 43.22%, #FFCD61 46.49%, #F9D587 56.9%, #F3DFB2 70.4%, #EFE5D1 82.56%, #ECEAE4 92.84%, #EBEBEB 100%);
+}
+/* ==================== PÁGINA DE POSTS POR CATEGORÍA ====================== */
+
+.post_por_cat {
+  background: linear-gradient(0deg, #9A99DA 0%, #A2A1DC 4.13%, #B8B7E0 10.55%, #DBDBE8 18.42%, #EBEBEB 21.54%, #EBEBEB 32.86%, #EBEBEB 100%) no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+.body_ppc {
+  background-color: #FFFFFF;
+  border-radius: 30px;
+  margin-bottom: 12rem;
+  margin-right: 10rem;
+  margin-left: 10rem;
+  margin-top: 8rem;
+  padding-bottom: 4rem;
+}
+.titulo_post_por_cat {
+  font-family: 'Playfair Display', serif;
+  font-size: 3vw;
+  color: #333333;
+  padding-bottom: 3rem;
+  padding-top: 3rem;
+  margin-left: 6rem;
+  margin-right: 6rem;
+}
+.cada_post {
+  font-family: 'Work Sans', sans-serif;
+  margin-left: 8rem;
+  margin-right: 8rem ;
+}
+.titulo_post {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.5vw;
+  font-weight: bold;
+  color: #333333;
+  text-decoration: none;
+}
+.titulo_post:hover {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.5vw;
+  font-weight: bolder;
+  color: #5A45CB;
+  text-decoration: underline;
+}
+.post_extracto {
+  font-family: 'Work Sans', sans-serif;
+  color: #333333;
+  font-size: 1vw;
+}
+.ver_detalle {
+  margin-left: 3rem;
+  color: #5A45CB;
+  text-decoration: none;
+  font-size: 1vw;
+  margin-bottom: 2rem;
 }

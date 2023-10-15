@@ -2,16 +2,23 @@
 {% load static %}
 
 {% block content %}
-<h1>Posts de la categoría "{{ categoria.nombre }}"</h1>
-<ul>
-    {% for post in posts %}
-        <li>
-            <a href="{% url 'odegiblog:ver_publicacion' post.slug %}">{{ post.titulo }}</a>
-            <a href="{% url 'odegiblog:ver_publicacion' post.slug %}">Ver Detalle</a>
-
-        </li>
-    {% empty %}
-        <p>No se encontraron posts en esta categoría.</p>
-    {% endfor %}
-</ul>
+<body class="post_por_cat">
+   <section class="body_ppc">
+    <h1 class="titulo_post_por_cat">Todos los posts de la categoría "{{ categoria.nombre }}"</h1>
+    <ul>
+        {% for post in posts %}
+            <li class="cada_post">
+                <a class="titulo_post" href="{% url 'odegiblog:ver_publicacion' post.slug %}">{{ post.titulo }}</a>
+                <p class="post_extracto">
+                  {{ post.extracto }}
+                </p>
+                <a class="ver_detalle" href="{% url 'odegiblog:ver_publicacion' post.slug %}">Ver Detalle</a>
+                <br><br>
+            </li>
+        {% empty %}
+            <p>No se encontraron posts en esta categoría.</p>
+        {% endfor %}
+    </ul>
+  </section>
+</body>
 {% endblock content %}
