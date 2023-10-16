@@ -9,22 +9,76 @@
     </div>
     <div class="lista_terminos">
       {% for termino in terminos %}
-        <button class="terminos">
-          {{ termino.termino }}
+        <button class="terminos" data-definicion="{{ termino.definicion }}">
+            {{ termino.termino }}
         </button>
       {% endfor %}
     </div>
     <div class="despliegue_definicion">
-      <h3 class="termino"> </h3>
-      <p class="definicion">
-
+        <h3 class="termino">{{ terminos.0.termino }}</h3>
+        <p class="definicion">{{ terminos.0.definicion }}</p>
       </p>
     </div>
   </section>
-
   <section class="nuestros_proyectos">
-
+    <div class="titulo_nuestros_proyectos">
+      <h1 class="nuestros">Nuestros proyectos</h1>
+    </div>
+    {% for proyecto in proyectos %}
+      <div class="container_proyecto" style="border-color: transparent; background-color: {{ colores|random }};">
+        <div class="columna_imagen_proyecto">
+          <img class="imagen_proyecto" src="{{ proyecto.imagen_principal.url }}" alt="{{ proyecto.titulo }}">
+        </div>
+        <div class="columna_textos">
+          <a href="{% url 'odegiblog:ver_publicacion' slug=proyecto.slug %}">
+            <h6 class="categoria_proyecto"> Categoría ~ {{ proyecto.categoria.first.nombre }}</h6>
+            <h3 class="titulo_proyecto">{{ proyecto.titulo }}</h3>
+            <h6 class="extracto_proyecto">{{ proyecto.extracto }}</h6>
+            <p class="fecha_proyecto">{{ proyecto.fecha_publicacion|date:"d/m/Y" }}</p>
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+  </section>
+  <section class="kits">
+    <div class="título_kits">
+      <h1 class="kits_y_herramientas">Kits y herramientas</h1>
+    </div>
+    <div class="cards_kit">
+      {% for herramienta in herramientas %}
+        <div class="cada_card" style="border-color: transparent; background-color: {{ colores|random }};">
+          <img class="imagen_herramientas" src="{{ herramienta.imagen_principal.url }}" alt="{{ herramienta.titulo }}">
+          <a href="{% url 'odegiblog:ver_publicacion' slug=herramienta.slug %}">
+            <h2 class="titulo_kit">{{ herramienta.titulo }}</h2>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
 
   </section>
+
 </body>
+
+
+
+
+{% block javascript %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const botonesTerminos = document.querySelectorAll(".terminos");
+        const terminoSeleccionado = document.querySelector(".termino");
+        const definicionSeleccionada = document.querySelector(".definicion");
+
+        botonesTerminos.forEach(function (boton) {
+            boton.addEventListener("click", function () {
+                const definicion = boton.getAttribute("data-definicion");
+                const termino = boton.textContent;
+
+                terminoSeleccionado.textContent = termino;
+                definicionSeleccionada.textContent = definicion;
+            });
+        });
+    });
+</script>
+{% endblock javascript %}
 {% endblock content %}

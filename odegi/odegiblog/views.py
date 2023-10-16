@@ -80,7 +80,7 @@ def blog(request):
     return render(request, "blog.html", context)
 
 def proyectos(request):
-    nuestros_proyectos = Publicacion.objects.filter(estatus=1).filter(seccion=3).order_by('-fecha_publicacion')
+    nuestros_proyectos = Publicacion.objects.filter(estatus=1).filter(seccion=3).order_by('-fecha_publicacion')[:3]
     herramientas = Publicacion.objects.filter(estatus=1).filter(seccion=2).order_by('-fecha_publicacion')
     context = {
         'proyectos': nuestros_proyectos,
