@@ -32,12 +32,40 @@
                 <h2 class="titulo">{{ publicacion.titulo }}</h2>
               </div>
             <p class="fecha">{{ publicacion.fecha_publicacion|date:"d/m/Y" }}</p>
-            <p class="autora">{{ publicacion.autora }}</p>
-            <p class="contenido">
-              {{ publicacion.contenido }}
-            </p>
+            <p class="autora">{{ publicacion.autora.first.nombre }}</p>
+
+              <!-- Primer párrafo con estilo diferente -->
+              <div class="primer-parrafo-estilizado">
+                  <p>{{ publicacion.contenido|linebreaksbr|default:""|linebreaks }}</p>
+              </div>
+
+              <!-- Resto del contenido -->
+              <div class="contenido">
+                  <p>{{ publicacion.contenido|linebreaksbr|default:""|linebreaks }}</p>
+              </div>
+
           </div>
       </div>
     </section>
+
+    <section class="explorar">
+      <h1 class="sigue_explorando">Sigue explorando</h1>
+      <div class="tres_columnas">
+        {% for explora in odegi_blog %}
+          <div class="card explora" style="border-color: transparent; background-color: {{ colores|random }};">
+            <img class="imagen_principal_card" src="{{ explora.imagen_principal.url }}" alt="{{ explora.titulo }}" />
+            <div class="texto_card">
+              <a href="{% url 'odegiblog:ver_publicacion' slug=explora.slug %}">
+                <h5 class="explora_cat">Categoría ~ {{ explora.categoria.first.nombre }}</h5>
+                <h2 class="titulo_explora">{{ explora.titulo }}</h2>
+                <p class="fecha_explora">{{ explora.fecha_publicacion|date:"d/m/Y" }}</p>
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+
+
   </body>
 {% endblock content %}

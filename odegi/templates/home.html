@@ -8,6 +8,12 @@
         <div class="col-md-6">
           {% for postdestacado in destacado %}
             <h1 class="titulo_destacado">{{ postdestacado.titulo }}</h1>
+            <h6 class="extracto_destacado">{{ postdestacado.extracto }}</h6>
+
+            <a href="{% url 'odegiblog:ver_publicacion' slug=postdestacado.slug %}">
+                <button class="botonvermas" type="button">Ver detalle →</button>
+            </a>
+
           {% endfor %}
         </div>
 
@@ -32,7 +38,7 @@
                       <div class="card-body">
                         <a href="{% url 'odegiblog:ver_publicacion' slug=publicacion.slug %}">
                             <div class="card-text">
-                                <h2 class="categorias">Categoría: {{ publicacion.categoria.first.nombre }}</h2>
+                                <h5 class="categoriashome">Categoría: {{ publicacion.categoria.first.nombre }}</h5>
                                 <h4 class="titulos">{{ publicacion.titulo }}</h4>
                                 <p class="fechas">{{ publicacion.fecha_publicacion|date:"d/m/Y" }}</p>
                             </div>

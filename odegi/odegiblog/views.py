@@ -49,9 +49,14 @@ def datoteca(request):
     return render(request, "datoteca.html", context)
 
 def publicacion(request, slug):
-    publicacion = Publicacion.objects.get(slug=slug)
+    publicacion = Publicacion.objects.filter(estatus=1).get(slug=slug)
+    odegi_blog = Publicacion.objects.filter(estatus=1)[:3]
+    colores = ['#ECA0ED', '#B5D2EA', '#FFDBBC', '#FF895A']
+
     context = {
-        'publicacion': publicacion
+        'publicacion': publicacion,
+        'odegi_blog': odegi_blog,
+        'colores': colores,
     }
     return render(request, 'publicacion.html', context)
 
