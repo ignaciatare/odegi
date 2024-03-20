@@ -46,88 +46,119 @@
 </head>
 <body>
   <header>
-    <div class="botondonar">
-      <button type="button">Donar</button>
-    </div>
+      <div class="navbar">
+        <div class="logo-div">
+            <a href="{% url 'odegiblog:home' %}">
+                <img src="{% static 'images/logo.png' %}" alt="Logo" class="" height="45px" width="260px">
+            </a>
+        </div>
 
-      <div class="container-fluid">
-          <div class="row align-items-center">
-              <div class="col-md-3 loguito">
-                  <a class="navbar-brand" href="{% url 'odegiblog:home' %}">
-                      <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo-con-margen" height="40vw">
-                  </a>
-              </div>
-              <div class="col-md-9 text-center">
-                  <nav class="navbar navbar-expand-md ml-auto">
-                    <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
+        <div class="navbar-list">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'odegiblog:home' %}">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'nosotras:nosotras' %}">Nosotras</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'odegiblog:nuestra_historia' %}">Nuestra historia</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'odegiblog:datoteca' %}">Datoteca</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'glosario:nuestro_trabajo' %}">Nuestro trabajo</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'odegiblog:transparencia' %}">Transparencia</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'odegiblog:blog' %}">Blog</a>
+            </li>
+        </div>
 
-                      <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                          <ul class="navbar-nav ">
-                              <li class="nav-item active">
-                                  <a class="nav-link" href="{% url 'odegiblog:home' %}">Inicio</a>
-                              </li>
-                              <li class="nav-item">
-                                  <a class="nav-link" href="{% url 'nosotras:nosotras' %}">Nosotras</a>
-                              </li>
-                              <li class="nav-item">
-                                  <a class="nav-link" href="#">Nuestra historia</a>
-                              </li>
-                              <li class="nav-item">
-                                  <a class="nav-link" href="{% url 'odegiblog:datoteca' %}">Datoteca</a>
-                              </li>
-                              <li class="nav-item">
-                                  <a class="nav-link" href="{% url 'glosario:nuestro_trabajo' %}">Nuestro trabajo</a>
-                              </li>
-                              <li class="nav-item">
-                                  <a class="nav-link" href="{% url 'odegiblog:transparencia' %}">Transparencia</a>
-                              </li>
-                              <li class="nav-item">
-                                  <a class="nav-link" href="#">Blog</a>
-                              </li>
-                          </ul>
-                      </div>
-                  </nav>
-              </div>
+        <div class="hamburger" onclick="toggleNavbar()">
+            <img id="hamburger-icon" src="{% static 'images/burger.svg' %}" alt="Logo" class="" height="32px" width="32px">
+        </div>
+
+        <div id="sidebar" class="sidebar">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'odegiblog:home' %}">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'nosotras:nosotras' %}">Nosotras</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'odegiblog:nuestra_historia' %}">Nuestra historia</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'odegiblog:datoteca' %}">Datoteca</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'glosario:nuestro_trabajo' %}">Nuestro trabajo</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'odegiblog:transparencia' %}">Transparencia</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'odegiblog:blog' %}">Blog</a>
+            </li>
+        </div>
   </header>
 {% block content %}
 
 {% endblock content %}
 
   <footer class="footer">
-      <div class="container-fluid">
-          <div class="row">
-              <div class="col-md-4 columna1">
-                  <img src="{% static 'images/logo-gris.png' %}" height="40px" alt="logo-gris" class="logo-gris">
-                  <p>
-                      Observatorio de <br>
-                      datos y estadísticas <br>
-                      de género e <br>
-                      interseccionalidades
-                  </p>
-              </div>
-              <div class="col-md-4 columna2">
-                  <p>
-                      ¿Quieres saber qué hacemos <br>
-                      con las donaciones?
-                  </p>
-                  <button type="button">Transparencia →</button>
-                <br>
+    <div class="first-div">
+        <img src="{% static 'images/logo-gris.png' %}" height="40px" alt="logo-gris" class="logo-gris">
+        <p>
+            Observatorio de <br>
+            datos y estadísticas <br>
+            de género e <br>
+            interseccionalidades
+        </p>
+    </div>
+    <div class="second-div">
+        <p>
+            ¿Quieres saber qué hacemos <br>
+            con las donaciones?
+        </p>
+      <a class="atransparencia" href="{% url 'odegiblog:transparencia' %}">
+       <button type="button">Transparencia →</button>
+      </a>
+        <br>
 
-              </div>
-              <div class="col-md-4 columna3">
-                  <p><a href="mailto:contacto@odegi.cl" class="linkmail">contacto@odegi.cl</a></p>
-                <div class="rrss">
-                  <a href="https://www.facebook.com/odegichile/" target="_blank"><img src="{% static 'images/fb.png' %}" alt="facebook-logo"></a>
-                  <a href="https://www.instagram.com/odegichile/" target="_blank"><img src="{% static 'images/ig.png' %}" alt="instagram-logo"></a>
-                  <a href="https://www.linkedin.com/company/odegichile" target="_blank"><img src="{% static 'images/li.png' %}" alt="linkedin-logo"></a>
-                  <a href="https://twitter.com/odegichile" target="_blank"><img src="{% static 'images/tw.png' %}" alt="twitter-logo"></a>
-                </div>
-              </div>
-          </div>
+    </div>
+    <div class="third-div">
+        <p><a href="mailto:contacto@odegi.cl" class="linkmail">contacto@odegi.cl</a></p>
+      <div class="rrss">
+        <a href="https://www.facebook.com/odegichile/" target="_blank"><img src="{% static 'images/fb.png' %}" alt="facebook-logo"></a>
+        <a href="https://www.instagram.com/odegichile/" target="_blank"><img src="{% static 'images/ig.png' %}" alt="instagram-logo"></a>
+        <a href="https://www.linkedin.com/company/odegichile" target="_blank"><img src="{% static 'images/li.png' %}" alt="linkedin-logo"></a>
+        <a href="https://twitter.com/odegichile" target="_blank"><img src="{% static 'images/tw.png' %}" alt="twitter-logo"></a>
       </div>
+    </div>
   </footer>
 
+  <script>
+    const toggleNavbar = () => {
+       const sidebar = document.getElementById("sidebar");
+       const hamburgerIcon = document.getElementById("hamburger-icon");
+
+       if (sidebar.classList.contains("open-sidebar")) {
+            sidebar.classList.remove("open-sidebar")
+            hamburgerIcon.style.width = "32px"
+            hamburgerIcon.style.height = "32px"
+            hamburgerIcon.setAttribute("src", "{% static 'images/burger.svg' %}")
+        }
+        else{
+            sidebar.classList.add("open-sidebar")
+            hamburgerIcon.style.width = "23px"
+            hamburgerIcon.style.height = "23px"
+            hamburgerIcon.setAttribute("src", "{% static 'images/cross.svg' %}")
+       }
+    }
+  </script>
 </body>
 </html>

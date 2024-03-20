@@ -63,7 +63,11 @@ def publicacion(request, slug):
 
 
 def nuestra_historia(request):
-    return render(request, 'nuestra_historia.html')
+    colores = ['#ECA0ED', '#B5D2EA', '#FFDBBC', '#FF895A']
+    context = {
+        'colores': colores,
+    }
+    return render(request, 'nuestra_historia.html', context)
 
 
 def posts_por_categoria(request, categoria_nombre):
@@ -79,8 +83,13 @@ def posts_por_categoria(request, categoria_nombre):
 
 def blog(request):
     odegi_blog = Publicacion.objects.filter(estatus=1).filter(seccion=0).order_by('-fecha_publicacion')
+    lista_categorias = Categoria.objects.all()
+    colores = ['#ECA0ED', '#B5D2EA', '#FFDBBC', '#FF895A']
+
     context = {
         'odegi_blog': odegi_blog,
+        'lista_categorias': lista_categorias,
+        'colores': colores,
     }
     return render(request, "blog.html", context)
 

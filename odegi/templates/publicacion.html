@@ -11,7 +11,7 @@
             </div>
             <div class="cajaextracto"
               <h5 class="extracto"> {{ publicacion.extracto }} </h5>
-            </div>
+            </div>  
             {% if publicacion.imagen2 %}
               <img class="imagen2" src="{{ publicacion.imagen2.url }}" alt="{{ publicacion.titulo }}" />
             {% endif %}
@@ -51,18 +51,32 @@
     <section class="explorar">
       <h1 class="sigue_explorando">Sigue explorando</h1>
       <div class="tres_columnas">
-        {% for explora in odegi_blog %}
-          <div class="card explora" style="border-color: transparent; background-color: {{ colores|random }};">
-            <img class="imagen_principal_card" src="{{ explora.imagen_principal.url }}" alt="{{ explora.titulo }}" />
-            <div class="texto_card">
-              <a href="{% url 'odegiblog:ver_publicacion' slug=explora.slug %}">
-                <h5 class="explora_cat">Categoría ~ {{ explora.categoria.first.nombre }}</h5>
-                <h2 class="titulo_explora">{{ explora.titulo }}</h2>
-                <p class="fecha_explora">{{ explora.fecha_publicacion|date:"d/m/Y" }}</p>
+        <div class="blog-container filax">
+          {% for explora in odegi_blog %}
+          <div
+            class="blog-card cardfilax"
+            style="border-color: transparent; background-color: {{ colores|random }};"
+          >
+            <img
+              class="imagen_datoteca_filax"
+              src="{{ explora.imagen_principal.url }}"
+              alt="{{ publicacion.titulo }}"
+            />
+            <div class="card-body carta_body_datoteca">
+              <a
+              href="{% url 'odegiblog:ver_publicacion' slug=explora.slug %}"
+              >
+                <h5 class="categoria_datoteca">
+                  Categoría ~ {{ publicacion.categoria.first.nombre }}
+                </h5>
+                <h2 class="titulo_datoteca">{{ publicacion.titulo }}</h2>
+                <p class="fecha_datoteca">
+                  {{ publicacion.fecha_publicacion|date:"d/m/Y" }}
+                </p>
               </a>
             </div>
           </div>
-        {% endfor %}
+          {% endfor %}
       </div>
     </section>
 

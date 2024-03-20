@@ -1,137 +1,169 @@
-{% extends "base.html" %}
-{% load static %}
-
-{% block content %}
+{% extends "base.html" %} {% load static %} {% block content %}
 <body class="bodydatoteca">
-    <section class="flex-container">
-      <div class="busqueda">
-        <form method="GET" action="{% url 'odegiblog:buscar_publicaciones' %}">
-          <input type="text" id="busqueda" name="q" placeholder="   Buscar">
-          <button type="submit" id="boton-busqueda">
-            <i class="fas fa-search"></i>
-          </button>
-        </form>
-      </div>
-    </section>
-    <section class="flex-container contenedor">
-      <h1>Datoteca</h1>
-        <div class="categorias">
-          {% for categoria in lista_categorias %}
-            <a href="{% url 'odegiblog:posts_por_categoria' categoria.nombre %}" class="lista_categorias">{{ categoria.nombre }}</a>
-          {% endfor %}
-      </div>
-    </section>
+  <section class="search-top-bar-container">
+    <div class="busqueda">
+      <form method="GET" action="{% url 'odegiblog:buscar_publicaciones' %}">
+        <input type="text" id="busqueda" name="q" placeholder="   Buscar" />
+        <button type="submit" id="boton-busqueda">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+    </div>
+  </section>
 
-    <section class="cartas_datoteca">
+  <section class="flex-container contenedor">
+    <h1>Datoteca</h1>
+    <div class="categorias">
+      {% for categoria in lista_categorias %}
+      <a
+        href="{% url 'odegiblog:posts_por_categoria' categoria.nombre %}"
+        class="lista_categorias"
+        >{{ categoria.nombre }}</a
+      >
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="cartas_datoteca">
     <div class="flex-container">
       <div class="blog-row fila1">
         {% for publicacion in fila1 %}
-          <div class="blog-card cardfila1" style="border-color: transparent; background-color: {{ colores|random }};">
-              <img class="imagen_datoteca_fila1" src="{{ publicacion.imagen_principal.url }}" alt="{{ publicacion.titulo }}" >
-            <a href="{% url 'odegiblog:ver_publicacion' slug=publicacion.slug %}">
-              <div class="card-body carta1_body_datoteca">
-                <h5 class="categoria_datoteca">Categoría ~ {{ publicacion.categoria.first.nombre }}</h5>
-                <h2 class="titulo_datoteca">{{ publicacion.titulo }}</h2>
-                <p class="fecha_datoteca">{{ publicacion.fecha_publicacion|date:"d/m/Y" }}</p>
-              </div>
-            </a>
-          </div>
+        <div
+          class="blog-card cardfila1"
+          style="border-color: transparent; background-color: {{ colores|random }};"
+        >
+          <img
+            class="imagen_datoteca_fila1"
+            src="{{ publicacion.imagen_principal.url }}"
+            alt="{{ publicacion.titulo }}"
+          />
+          <a href="{% url 'odegiblog:ver_publicacion' slug=publicacion.slug %}">
+            <div class="card-body carta1_body_datoteca">
+              <h5 class="categoria_datoteca">
+                Categoría ~ {{ publicacion.categoria.first.nombre }}
+              </h5>
+              <h2 class="titulo_datoteca">{{ publicacion.titulo }}</h2>
+              <p class="fecha_datoteca">
+                {{ publicacion.fecha_publicacion|date:"d/m/Y" }}
+              </p>
+            </div>
+          </a>
+        </div>
         {% endfor %}
       </div>
 
       <!-- Fila 2: Penúltimo y antepenúltimo posts -->
       <div class="blog-row fila2">
         {% for publicacion in fila2 %}
-          <div class="blog-card cardfila2" style="border-color: transparent; background-color: {{ colores|random }};">
-            <img class="imagen_datoteca_fila2" src="{{ publicacion.imagen_principal.url }}" alt="{{ publicacion.titulo }}" >
-            <div class="card-body carta_body_datoteca">
-              <a href="{% url 'odegiblog:ver_publicacion' slug=publicacion.slug %}">
-                <h5 class="categoria_datoteca">Categoría ~ {{ publicacion.categoria.first.nombre }}</h5>
-                <h2 class="titulo_datoteca">{{ publicacion.titulo }}</h2>
-                <p class="fecha_datoteca">{{ publicacion.fecha_publicacion|date:"d/m/Y" }}</p>
-              </a>
-            </div>
+        <div
+          class="blog-card cardfila2"
+          style="border-color: transparent; background-color: {{ colores|random }};"
+        >
+          <img
+            class="imagen_datoteca_fila2"
+            src="{{ publicacion.imagen_principal.url }}"
+            alt="{{ publicacion.titulo }}"
+          />
+          <div class="card-body carta_body_datoteca">
+            <a
+              href="{% url 'odegiblog:ver_publicacion' slug=publicacion.slug %}"
+            >
+              <h5 class="categoria_datoteca">
+                Categoría ~ {{ publicacion.categoria.first.nombre }}
+              </h5>
+              <h2 class="titulo_datoteca">{{ publicacion.titulo }}</h2>
+              <p class="fecha_datoteca">
+                {{ publicacion.fecha_publicacion|date:"d/m/Y" }}
+              </p>
+            </a>
           </div>
+        </div>
         {% endfor %}
       </div>
 
       <!-- Fila 3 en adelante: Resto de los posts -->
       <div class="blog-container filax">
-        {% for publicacion in fila3_en_adelante %}
-          {% if forloop.counter <= 6 %}
-          <div class="blog-card cardfilax" style="border-color: transparent; background-color: {{ colores|random }};">
-            <img class="imagen_datoteca_filax" src="{{ publicacion.imagen_principal.url }}" alt="{{ publicacion.titulo }}" >
-              <div class="card-body carta_body_datoteca">
-                <a href="{% url 'odegiblog:ver_publicacion' slug=publicacion.slug %}">
-                  <h5 class="categoria_datoteca">Categoría ~ {{ publicacion.categoria.first.nombre }}</h5>
-                  <h2 class="titulo_datoteca">{{ publicacion.titulo }}</h2>
-                  <p class="fecha_datoteca">{{ publicacion.fecha_publicacion|date:"d/m/Y" }}</p>
-                </a>
-              </div>
+        {% for publicacion in fila3_en_adelante %} {% if forloop.counter <= 6 %}
+        <div
+          class="blog-card cardfilax"
+          style="border-color: transparent; background-color: {{ colores|random }};"
+        >
+          <img
+            class="imagen_datoteca_filax"
+            src="{{ publicacion.imagen_principal.url }}"
+            alt="{{ publicacion.titulo }}"
+          />
+          <div class="card-body carta_body_datoteca">
+            <a
+              href="{% url 'odegiblog:ver_publicacion' slug=publicacion.slug %}"
+            >
+              <h5 class="categoria_datoteca">
+                Categoría ~ {{ publicacion.categoria.first.nombre }}
+              </h5>
+              <h2 class="titulo_datoteca">{{ publicacion.titulo }}</h2>
+              <p class="fecha_datoteca">
+                {{ publicacion.fecha_publicacion|date:"d/m/Y" }}
+              </p>
+            </a>
           </div>
-        {% endif %}
-        {% endfor %}
+        </div>
+        {% endif %} {% endfor %}
       </div>
 
       <section class="cartas_datoteca center-button">
-        <button id="load-more-button"> Mostrar más </button>
+        <button id="load-more-button">Mostrar más</button>
       </section>
-
     </div>
-    </section>
+  </section>
 
-{% endblock content %}
+  {% endblock content %} {% block inline_javascript %}
+  <script>
 
+    document.addEventListener("DOMContentLoaded", function () {
+      const postContainer = document.querySelector(".blog-container");
+      const loadMoreButton = document.getElementById("load-more-button");
 
-{% block inline_javascript %}
-<script>
+      if (!postContainer || !loadMoreButton) {
+        console.error("No se pudo encontrar el contenedor de publicaciones o el botón 'Mostrar más'.");
+        return;
+      }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const postContainer = document.querySelector(".blog-container");
-  const loadMoreButton = document.getElementById("load-more-button");
+      document.addEventListener("DOMContentLoaded", function () {
+        const postContainer = document.querySelector(".blog-container"); // Cambiado a '.blog-container'
+        const loadMoreButton = document.getElementById("load-more-button");
 
-  if (!postContainer || !loadMoreButton) {
-    console.error("No se pudo encontrar el contenedor de publicaciones o el botón 'Mostrar más'.");
-    return;
-  }
+        let startIndex = {{ fila3_en_adelante|length }} || 0;
+        const numPostsPerLoad = 3;
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const postContainer = document.querySelector(".blog-container"); // Cambiado a '.blog-container'
-    const loadMoreButton = document.getElementById("load-more-button");
+        loadMoreButton.addEventListener("click", function () {
+          console.log("Botón 'Mostrar más' clickeado");
 
-    let startIndex = {{ fila3_en_adelante|length }} || 0;
-    const numPostsPerLoad = 3;
+          // Realiza una solicitud AJAX a la vista de Django para cargar más posts
+          fetch(`/load_more_posts/?start=${startIndex}&count=${numPostsPerLoad}`)
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.length > 0) {
+                // Agrega los nuevos posts al contenedor
+                data.forEach((post) => {
+                  const newCard = document.createElement("div");
+                  newCard.classList.add("blog-card", "cardfilax");
+                  newCard.style.backgroundColor = "{{ colores|random }}";
 
-    loadMoreButton.addEventListener("click", function () {
-      console.log("Botón 'Mostrar más' clickeado");
+                  // Añade el contenido de la tarjeta aquí (imagen, título, etc.)
+                  // Ejemplo: newCard.innerHTML = `<img src="${post.image}" alt="${post.title}">`;
 
-      // Realiza una solicitud AJAX a la vista de Django para cargar más posts
-      fetch(`/load_more_posts/?start=${startIndex}&count=${numPostsPerLoad}`)
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.length > 0) {
-            // Agrega los nuevos posts al contenedor
-            data.forEach((post) => {
-              const newCard = document.createElement("div");
-              newCard.classList.add("blog-card", "cardfilax");
-              newCard.style.backgroundColor = "{{ colores|random }}";
+                  postContainer.appendChild(newCard);
+                });
 
-              // Añade el contenido de la tarjeta aquí (imagen, título, etc.)
-              // Ejemplo: newCard.innerHTML = `<img src="${post.image}" alt="${post.title}">`;
-
-              postContainer.appendChild(newCard);
+                // Actualiza el índice de inicio para la próxima carga
+                startIndex += data.length;
+              } else {
+                // No hay más posts para cargar, oculta el botón
+                loadMoreButton.style.display = "none";
+              }
             });
-
-            // Actualiza el índice de inicio para la próxima carga
-            startIndex += data.length;
-          } else {
-            // No hay más posts para cargar, oculta el botón
-            loadMoreButton.style.display = "none";
-          }
         });
-    });
-  });
-</script>
-{% endblock inline_javascript %}
-
+      });
+  </script>
+  {% endblock inline_javascript %}
 </body>

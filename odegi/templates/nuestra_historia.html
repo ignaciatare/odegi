@@ -1,11 +1,143 @@
-
-{% extends "base.html" %}
-{% load static %}
-
-{% block content %}
+{% extends "base.html" %} {% load static %} {% block content %}
 <body class="nuestra_historia">
+  <h1 class="titulo_principal">Nuestra historia</h1>
+  <section class="bloque_blanco">
+    <h1 class="feminismo_datos">Feminismo de datos</h1>
+    <p class="texto_feminismo_datos">
+      Ser un observatorio feminista que evidencie y problematice las opresiones
+      e inequidades del patriarcado desde los datos. Para ello, promovemos la
+      producción, visualización, y uso de datos de género y sus
+      interseccionalidades desde una perspectiva crítica, inclusiva y
+      democrática. Es común que las estadísticas se presenten como una ciencia
+      neutral y objetiva, cuando realmente no lo son, debido a que responden a
+      un contexto y a una cultura que las crea, y este contexto es desigual. En
+      Una sociedad tecnologizada, una falta de perspectiva crítica en los datos
+      no da espacio a la visibilización de las desigualdades existentes, lo que
+      significa la perpetuacion y reproducción de opresiones patriarcales que se
+      agudizan si consideramos las interseccionalidades. De esta manera, y como
+      vemos en la ciya de Catherine D'Ignazio y Lauren F Klein, autoras del
+      libro "Data feminism", el feminismo de datos es una forma de pensar los
+      datos, en los usos que le damos y en las limitaciones que tienen.
+    </p>
 
+    <h1 class="titulo_nuestros_pilares">Nuestros pilares</h1>
+    <p class="texto_nuestros_pilares">
+      Para cada uno de nuestros pilares, el diseño, los datos y las
+      comunicaciones se combinan para hacer de los datos algo amigable, distinto
+      y llamativo.
+    </p>
 
+    <section class="card_pilares">
+      <div
+        class="card"
+        style="border: none; background-color: {{ colores|random }};"
+      >
+        <h3 class="titulo_card_pilares">Estudios y políticas públicas</h3>
+        <p class="texto_card_pilares">
+          Entendiendo que aún falta mucha información por levantar y
+          visibilizar, desde el área de datos de ODEGI realizamos estudios,
+          consultorías, y proyectos de investigación que contribuyan a responder
+          nuevas preguntas y a hacer diagnósticos especializados sobre la
+          situación de género en empresas, a nivel de políticas públicas y de la
+          sociedad.
+        </p>
+      </div>
+      <div
+        class="card"
+        style="border: none; background-color: {{ colores|random }};"
+      >
+        <h3 class="titulo_card_pilares">Formación e Intervenciones</h3>
+        <p class="texto_card_pilares">
+          Para que el trabajo con datos de género se vuelva accesible y
+          escalable a otras personas, ofrecemos consultorías y asesorías a
+          empresas e instituciones con el objetivo de instalar capacidades en
+          equipos de trabajo, así como reforzar y profundizarlas en aquellos
+          equipos que ya tengan conocimientos en el tema.
+        </p>
+      </div>
 
+      <div
+        class="card"
+        style="border: none; background-color: {{ colores|random }};"
+      >
+        <h3 class="titulo_card_pilares">Comunidad e Incidencia</h3>
+        <p class="texto_card_pilares">
+          El objetivo final de ODEGI es el de contribuir e una sociedad sin
+          discriminación de género. Por eso, parte importante de nuestro trabajo
+          es la visibilización y la difusión de datos, el aporte en el debate
+          público y la generación de redes entre organizaciones con trabajos
+          afines.
+        </p>
+      </div>
+    </section>
+  </section>
+  <section class="tiempos">
+    <h1 class="surge">Surge a raíz de</h1>
+    <h2 class="tiempo">
+      2018<br />
+      MAYO FEMINISTA
+    </h2>
+    <p class="texto_tiempo">
+      El movimiento global del feminismo contra la violencia machista que venía
+      acercentándose tanto en el mundo como en el contexto nacional, se
+      acrecenta en abril del 2018, cuando estudiantes universitarias denuncian
+      masivamente los abusos y la violencia machista que viven cotidianamente en
+      sus lugares de estudio. A ellas de les comienza a unir voces de todo, que
+      luchan por una sociedad libre de todo tipo de discriminación y violencia
+      contra mujeres y diversidades sexo-genéricas.
+    </p>
+
+    <div class="estallido">
+      <img
+        src="{% static 'images/odegi1.jpeg' %}"
+        alt="estallido"
+        width="100%"
+      />
+    </div>
+
+    <h2 class="tiempo">
+      2019 OCTUBRE<br />
+      ESTALLIDO SOCIAL
+    </h2>
+    <p class="texto_tiempo">
+      La revuelta social del año 2019, que iniciando con estudiantes que evaden
+      en el metro, convoca a millones de personas que protestan contra las
+      profundas inequidades sociales en un sistema neoliberal donde de precariza
+      la vida. Y donde estas desigualdades se exacerban por el hecho de ser
+      mujeres, pues tienen diferencias de género importantes.
+    </p>
+    <h2 class="tiempo">
+      2020<br />
+      PROCESO CONSTITUYENTE
+    </h2>
+    <p class="texto_tiempo">
+      Del estallido social deriva un proceso que busca terminas con la única
+      constitución del mundo escrita en dictadura. Esto da pie al proceso de
+      escritura de una nueva constitución, el cual no sólo garantizará la
+      primera constitución redactada de forma paritaria en el mundo, sino que
+      también tiene a la cabecera a una mujer mapuche.
+    </p>
+    <img
+      src="{% static 'images/contitu.png' %}"
+      class="constituyente"
+      alt="constituyente"
+      width="100%"
+    />
+    <div class="caja_pandemia">
+      <h2 class="tiempo">
+        2020<br />
+        PANDEMIA
+      </h2>
+      <p class="texto_tiempo">
+        El brote COVID-19 también ha sido importante para el género, pues
+        quienes más se han visto afectadas han sido las mujeres. Y es que la
+        grave crisis de cuidados y de trabajo doméstico ha recaído en nosotras,
+        lo que ha significado un retroceso de 10 años en la tasa de
+        participación laboral femenina, una grave sobrecarga y estrés que
+        afectan nuestra salid mental, y una obstaculización al acceso a la salud
+        sexual y reproductiva.
+      </p>
+    </div>
+  </section>
 </body>
 {% endblock content %}

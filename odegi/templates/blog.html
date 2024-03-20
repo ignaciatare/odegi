@@ -1,10 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %} {% block content %}
+<body class="cuerpoblog">
+  <section class="search-top-bar-container">
+    <div class="margen_boton_buscar">
+      <div class="busqueda">
+        <form method="GET" action="{% url 'odegiblog:buscar_publicaciones' %}">
+          <input type="text" id="busqueda" name="q" placeholder="   Buscar" />
+          <button type="submit" id="boton-busqueda">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
 
+  <div class="tituloblog">
+    <h1 class="titulo_blog">Blog</h1>
+  </div>
+
+  <section class="lista_categorias_blog">
+    <div class="categorias">
+      {% for categoria in lista_categorias %}
+      <a
+        href="{% url 'odegiblog:posts_por_categoria' categoria.nombre %}"
+        class="lista_categorias"
+      >
+        <button class="categoriasblog">{{ categoria.nombre }}</button>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="bloque_posts">
+    <h1 class="ultimos_post">Últimos post:</h1>
+
+    <div class="novedades-cards-container">
+      {% for publicacion in odegi_blog %}
+      <div class="novedad-card">
+        <div
+          class="card"
+          style="border: none; background-color: {{ colores|random }};"
+        >
+          <img
+            src="{{ publicacion.imagen_principal.url }}"
+            class="card-img-top"
+            alt="{{ publicacion.titulo }}"
+          />
+          <div class="card-body">
+            <a
+              href="{% url 'odegiblog:ver_publicacion' slug=publicacion.slug %}"
+            >
+              <div class="card-text">
+                <h5 class="categoriashome">
+                  Categoría: {{ publicacion.categoria.first.nombre }}
+                </h5>
+                <h4 class="titulos">{{ publicacion.titulo }}</h4>
+                <p class="fechas">
+                  {{ publicacion.fecha_publicacion|date:"d/m/Y" }}
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
 </body>
-</html>
+{% endblock content %}

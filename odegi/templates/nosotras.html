@@ -1,56 +1,68 @@
-{% extends "base.html" %}
-{% load static %}
+{% extends "base.html" %} {% load static %} {% block content %}
+<body class="nosotrash">
+  <main>
+    <section class="texto_imagen_nosotras">
+      <div class="nosotras-hero-left-div">
+        <img
+          src="{% static 'images/nosotras.png' %}"
+          alt="figura-nosotras"
+          class="mancha"
+        />
+      </div>
 
-{% block content %}
-  <body class="nosotrash">
-    <main>
-        <section class="texto_imagen_nosotras">
-          <div class="flex-container fotomancha">
-              <div class="col-md-6">
-                  <img src="{% static 'images/nosotras.png' %}" alt="figura-nosotras" class="mancha">
-              </div>
+      <div class="nosotras-hero-right-div">
+        Fusce dictum nisl massa, eu vestibulum turpis fermentum id. Nulla
+        facilisi. Fusce sagittis purus eros, eget condimentum ligula bibendum
+        quis. Nulla vitae eleifend odio. Mauris vulputate, lacus vel aliquam
+        auctor, risus tortor accumsan ex, volutpat pulvinar nisl velit id
+        ligula. Quisque eget justo quis orci gravida ullamcorper quis sit amet
+        dui. Sed sit amet tempor velit. Aliquam non efficitur risus. Fusce
+        dictum nisl massa, eu vestibulum turpis fermentum id. Nulla facilisi.
+        Fusce sagittis purus eros, eget condimentum ligula bibendum quis. Nulla
+        vitae eleifend odio. Mauris vulputate, lacus vel aliquam auctor, risus
+        tortor accumsan ex, volutpat pulvinar nisl velit id ligula. Quisque eget
+        justo quis orci gravida ullamcorper quis sit amet dui. Sed sit amet
+        tempor velit. Aliquam non efficitur risus.
+      </div>
+    </section>
 
-              <div class="col-md-6 textonosotras">
-                Fusce dictum nisl massa, eu vestibulum turpis fermentum id. Nulla facilisi. Fusce sagittis purus eros, eget condimentum ligula bibendum quis. Nulla vitae eleifend odio. Mauris vulputate, lacus vel aliquam auctor, risus tortor accumsan ex, volutpat pulvinar nisl velit id ligula. Quisque eget justo quis orci gravida ullamcorper quis sit amet dui. Sed sit amet tempor velit. Aliquam non efficitur risus.
-                Fusce dictum nisl massa, eu vestibulum turpis fermentum id. Nulla facilisi. Fusce sagittis purus eros, eget condimentum ligula bibendum quis. Nulla vitae eleifend odio. Mauris vulputate, lacus vel aliquam auctor, risus tortor accumsan ex, volutpat pulvinar nisl velit id ligula. Quisque eget justo quis orci gravida ullamcorper quis sit amet dui. Sed sit amet tempor velit. Aliquam non efficitur risus.
-
-              </div>
+    <section class="colaboradoras">
+      <div class="colaboradoras-first-div">
+        <div class="first-section">
+          <h1>Equipo</h1>
+        </div>
+        <div class="second-section">
+          {% for persona in equipo %}
+          <div class="second-section-inner">
+            <h5>{{ persona.nombre }}</h5>
+            <h6>{{ persona.cargo }}</h6>
+            <h6>{{ persona.grado }}</h6>
           </div>
-        </section>
-        <section class="flex-container colaboradoras">
-              <div class="elequipo">
-                <div class="columna4">
-                  <h1>Equipo</h1>
-                </div>
-                  {% for persona in equipo %}
-                    <div class="columna5">
-                      <h5>{{ persona.nombre }}</h5>
-                      <h6>{{ persona.cargo }}</h6>
-                      <h6>{{ persona.grado }}</h6>
-                    </div>
-                    <div class="columna6"></div>
-                  {% endfor %}
-              </div>
-              <div class="lasvoluntarias">
-                <div class="columna7">
-                  <h1>Voluntarias</h1>
-                </div>
-                {% for voluntaria in voluntarias %}
-                  <div class="columna8">
-                    <h5>{{ voluntaria.nombre }}</h5>
-                    <h6>{{ voluntaria.cargo }}</h6>
-                    <h6>{{ voluntaria.grado }}</h6>
-                  </div>
-                {% endfor %}
-              </div>
-              <div class="tomaaccion">
-                <div class="columna10">¿Quieres ser voluntaria?
-              </div>
-              <div class="columna11">
-                <button type="button">Toma acción →</button>
-              </div>
-              </div>
-        </section>
-    </main>
-  </body>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="colaboradoras-second-div">
+        <div class="first-section">
+          <h1>Voluntarias</h1>
+        </div>
+        <div class="second-section">
+          {% for voluntaria in voluntarias %}
+          <div class="second-section-inner">
+            <h5>{{ voluntaria.nombre }}</h5>
+            <h6>{{ voluntaria.cargo }}</h6>
+            <h6>{{ voluntaria.grado }}</h6>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="tomaaccion">
+        <div class="columna10">¿Quieres ser voluntaria?</div>
+        <div class="columna11">
+          <button type="button">Toma acción →</button>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
 {% endblock %}

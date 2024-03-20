@@ -1,23 +1,28 @@
-{% extends "base.html" %}
-{% load static %}
-
-{% block content %}
+{% extends "base.html" %} {% load static %} {% block content %}
 <body class="post_por_cat">
-   <section class="body_ppc">
-    <h1 class="titulo_post_por_cat">Todos los posts de la categoría "{{ categoria.nombre }}"</h1>
+  <section class="body_ppc">
+    <h1 class="titulo_post_por_cat">
+      Todos los posts de la categoría "{{ categoria.nombre }}"
+    </h1>
     <ul>
-        {% for post in posts %}
-            <li class="cada_post">
-                <a class="titulo_post" href="{% url 'odegiblog:ver_publicacion' post.slug %}">{{ post.titulo }}</a>
-                <p class="post_extracto">
-                  {{ post.extracto }}
-                </p>
-                <a class="ver_detalle" href="{% url 'odegiblog:ver_publicacion' post.slug %}">Ver Detalle</a>
-                <br><br>
-            </li>
-        {% empty %}
-            <p class="mensaje_busqueda">No se encontraron posts en esta categoría.</p>
-        {% endfor %}
+      {% for post in posts %}
+      <li class="cada_post">
+        <a
+          class="titulo_post"
+          href="{% url 'odegiblog:ver_publicacion' post.slug %}"
+          >{{ post.titulo }}</a
+        >
+        <p class="post_extracto">{{ post.extracto }}</p>
+        <a
+          class="ver_detalle"
+          href="{% url 'odegiblog:ver_publicacion' post.slug %}"
+          >Ver Detalle</a
+        >
+        <br /><br />
+      </li>
+      {% empty %}
+      <p class="mensaje_busqueda">No se encontraron posts en esta categoría.</p>
+      {% endfor %}
     </ul>
   </section>
 </body>
